@@ -1,17 +1,14 @@
-# 🧪 DevOps / SRE Homelab
+# DevOps / SRE Homelab
 
-A personal multi-node homelab built to simulate real-world DevOps and Site Reliability Engineering (SRE) environments.  
-This project demonstrates hands-on experience with Linux servers, containerization, monitoring, automation, and incident response.
+A hands-on Site Reliability Engineering homelab built to simulate real-world infrastructure, containerization, and monitoring workflows.
+
+This project demonstrates practical experience with Linux administration, Docker, Prometheus, and Grafana in a multi-node environment.
 
 ---
 
-## 🎯 Project Goals
-- Build a production-like infrastructure using virtualization
-- Practice Linux system administration
-- Deploy and manage containerized applications
-- Implement monitoring and observability
-- Automate routine operational tasks
-- Simulate failures and perform recovery (SRE mindset)
+## 🧱 Architecture Overview
+
+
 
 ---
 
@@ -25,89 +22,88 @@ Windows Host (VirtualBox)
 │
 ├── docker-node (Ubuntu Server)
 │ ├── Docker & Docker Compose
-│ ├── Nginx
-│ ├── Redis
-│ ├── MySQL
-│ └── Sample application
+│ ├── Nginx container
+│ └── Application networking
 │
 └── monitor-node (Ubuntu Server)
 ├── Prometheus
-├── Grafana
-└── Node Exporter
+├── Node Exporter
+└── Grafana
 ```
 
 ---
 
-## 🧰 Tools & Technologies
-- Linux (Ubuntu Server 22.04)
-- VirtualBox
-- Docker & Docker Compose
+---
+
+## 🛠️ Technologies Used
+
+- Ubuntu Server 22.04 LTS
+- Docker & containerd
+- Nginx
 - Prometheus
+- Node Exporter
 - Grafana
-- Bash scripting
-- SSH
-- Git & GitHub
+- VirtualBox
+- Linux systemd services
+- NAT networking & port forwarding
 
 ---
 
-## 🧪 Lab Breakdown
+## 🔐 Remote Access (SSH)
 
-### Lab 1: Linux Fundamentals
-- Installed and configured Ubuntu Server
-- Managed users, permissions, and services
-- Enabled SSH access
+Secure SSH access configured using NAT port forwarding.
 
-### Lab 2: Multi-VM Infrastructure
-- Built a 3-node virtual homelab
-- Configured hostnames and networking
-- Implemented SSH key-based authentication
-
-### Lab 3: Docker & Containers
-- Installed Docker on a dedicated node
-- Deployed containerized services
-- Managed volumes, ports, and logs
-
-### Lab 4: Monitoring & Observability
-- Deployed Prometheus for metrics collection
-- Visualized system metrics using Grafana dashboards
-- Monitored CPU, memory, disk, and containers
-
-### Lab 5: Automation
-- Wrote Bash scripts for maintenance tasks
-- Scheduled cron jobs
-- Improved system reliability through automation
-
-### Lab 6: Failure & Recovery
-- Simulated service and container failures
-- Analyzed logs and metrics
-- Restored services and documented incident response
+![SSH Session](screenshots/ssh-session.png)
 
 ---
 
-## 🧠 SRE Concepts Applied
-- Infrastructure isolation
-- Observability & monitoring
-- Automation & toil reduction
-- Incident response
-- Reliability testing
+## 🐳 Docker & Containerization
+
+Docker installed via the official Docker repository.  
+Nginx container deployed and exposed via port mapping.
+
+![Docker Containers](screenshots/docker-containers.png)
 
 ---
 
-## 📈 Outcome
-This homelab provides hands-on experience comparable to entry-level DevOps and SRE roles, reinforcing both technical and operational best practices.
+## 📊 Monitoring with Prometheus
+
+Prometheus configured to scrape:
+- Itself
+- Node Exporter metrics
+
+All targets reporting **UP**.
+
+![Prometheus Targets](screenshots/prometheus-targets.png)
 
 ---
 
-## 🔮 Future Improvements
-- Kubernetes (Minikube / Kind)
-- CI/CD with GitHub Actions
-- Infrastructure as Code using Terraform
+## 📈 Visualization with Grafana
+
+Grafana configured with Prometheus as a data source.  
+Node Exporter Full dashboard imported to visualize system metrics.
+
+![Grafana Dashboard](screenshots/grafana-dashboard.png)
 
 ---
 
-## 👤 Author
-**Ify Ojuh**  
-Site Reliability Engineer 
+## 🎯 Key Skills Demonstrated
 
-🔗 GitHub: https://github.com/ifyojuh  
-🌐 Portfolio: https://ifyojuh.com
+- Linux server provisioning and administration
+- Secure remote access via SSH
+- Containerization using Docker
+- Service monitoring and observability
+- Metrics collection and visualization
+- Troubleshooting networking and services
+- Infrastructure documentation
+
+---
+
+## 📌 Future Improvements
+
+- Add Docker Compose workloads
+- Monitor docker-node via Node Exporter
+- Add alerting with Alertmanager
+- Introduce CI/CD pipelines
+- Simulate failure and recovery scenarios
+
